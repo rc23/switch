@@ -1,6 +1,97 @@
 package com.ppbf.helpers;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Helpers {
+
+    private static final String SEPARATOR = ";";
+
+    public static String createChristmasTree(int size) {
+        String tree = "";
+
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                tree = concatSpaces(size, tree, i);
+                tree = concatHashtag(tree, i);
+                tree = tree.concat("\n");
+            }
+
+            for (int i = 0; i < size - 1; i++) {
+                tree = concatSpace(tree);
+            }
+
+            tree = tree.concat("|");
+            tree = tree.concat("\n");
+        }
+
+        return tree;
+    }
+
+    private static String concatSpaces(int size, String tree, int i) {
+        for (int j = i + 1; j < size; j++) {
+            tree = concatSpace(tree);
+        }
+
+        return tree;
+    }
+
+    private static String concatHashtag(String tree, int i) {
+        for (int j = 0; j <= 2 * i; j++) {
+            tree = tree.concat("#");
+        }
+
+        return tree;
+    }
+
+    private static String concatSpace(String tree) {
+        tree = tree.concat(" ");
+        return tree;
+    }
+
+    public static ArrayList<Integer> getSizesOfTrees(ArrayList<String> lines) {
+        ArrayList<Integer> sizeOfTrees = new ArrayList<>();
+
+        for (String line : lines) {
+            String[] strings = line.split(SEPARATOR);
+            for (String res : strings) {
+                sizeOfTrees.add(Integer.parseInt(res));
+            }
+        }
+
+        return sizeOfTrees;
+    }
+
+    public static ArrayList<String> readFromFile() throws FileNotFoundException {
+        FileReader reader = new FileReader("resources/src.txt");
+        Scanner scanner = new Scanner(reader);
+
+        ArrayList<String> lines = new ArrayList<>();
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            lines.add(line);
+        }
+
+        scanner.close();
+
+        return lines;
+    }
+
+    public static void writeToFile(String content) throws IOException {
+        FileWriter writer = new FileWriter("resources/dst.txt", true);
+        PrintWriter printer = new PrintWriter(writer);
+
+        printer.print(content);
+        printer.print("\n");
+
+        printer.close();
+    }
 
     public int sum(Integer i, Integer j) {
         return i + j;
@@ -77,13 +168,5 @@ public class Helpers {
             --i2;
         }
         return true;
-    }
-
-    public void printChristmasTree(Integer size) {
-        if (size > 1) {
-            for (int i = 1; i < size + 1; i++) {
-
-            }
-        }
     }
 }
