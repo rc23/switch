@@ -11,6 +11,10 @@ import java.util.Scanner;
 public class Helpers {
 
     private static final String SEPARATOR = ";";
+    private static final String TREE_LEAF = "^";
+    private static final String TREE_BASE = "|";
+    private static final String SPACE = " ";
+    private static final String NEW_LINE = "\n";
 
     public static String createChristmasTree(int size) {
         String tree = "";
@@ -19,15 +23,12 @@ public class Helpers {
             for (int i = 0; i < size; i++) {
                 tree = concatSpaces(size, tree, i);
                 tree = concatHashtag(tree, i);
-                tree = tree.concat("\n");
+                tree = tree.concat(NEW_LINE);
             }
 
-            for (int i = 0; i < size - 1; i++) {
-                tree = concatSpace(tree);
-            }
-
-            tree = tree.concat("|");
-            tree = tree.concat("\n");
+            tree = concatSpaces(size, tree, 0);
+            tree = tree.concat(TREE_BASE);
+            tree = tree.concat(NEW_LINE);
         }
 
         return tree;
@@ -35,7 +36,7 @@ public class Helpers {
 
     private static String concatSpaces(int size, String tree, int i) {
         for (int j = i + 1; j < size; j++) {
-            tree = concatSpace(tree);
+            tree = tree.concat(SPACE);
         }
 
         return tree;
@@ -43,14 +44,9 @@ public class Helpers {
 
     private static String concatHashtag(String tree, int i) {
         for (int j = 0; j <= 2 * i; j++) {
-            tree = tree.concat("#");
+            tree = tree.concat(TREE_LEAF);
         }
 
-        return tree;
-    }
-
-    private static String concatSpace(String tree) {
-        tree = tree.concat(" ");
         return tree;
     }
 
