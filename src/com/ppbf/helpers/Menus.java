@@ -5,10 +5,13 @@ import com.ppbf.models.Bet;
 public class Menus {
 
     public static void printMenu() {
-        System.out.println("\n1. Write a program that uses the readFromFile function. "
-            + "It should receive an id and return the corresponding MarketName/s (30m)");
-        System.out.println("\n2. TBD");
-        System.out.println("\n3. TBD");
+        System.out.println("\n1. Write a program to search events by MarketId. (30m)"
+            + "\nPrint the result to the console");
+        System.out.println("\n2. Write a program to sort event/s by odd value (ascending). (45m)"
+            + "\nPrint the result to the console");
+        System.out.println("\n3. Write a program to place some bets given TBD money. "
+            + "Using the calculateWinners function, calculate the total profit/loss. (60m)"
+            + "\nPrint the result to the console");
         System.out.println("\n0. Quit");
         System.out.print("\nChoose menu item: ");
     }

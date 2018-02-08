@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("\nWelcome to the Switch Programme Exercise @Blip\n");
+        System.out.println("\nWelcome to the Switch Programme Exercise @Blip");
 
         boolean quit = false;
         int menuItem;
@@ -26,16 +26,11 @@ public class Main {
             switch (menuItem) {
                 case 1:
                     try {
-                        // Write a program to search events by MarketId and print its info. (30m)
+                        // 1. Write a program to search events by MarketId. (30m)
+                        //    Print the result to the console
 
                         // Read from file
                         List<String> lines = readFromFile("resources/events.txt");
-
-                        // Search by marketId
-                        // TODO
-
-                        // Print the results
-                        // TODO
 
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -43,9 +38,29 @@ public class Main {
 
                     break;
                 case 2:
+                    try {
+                        // 2. Write a program to sort event/s by odd value (ascending). (45m)
+                        //    Print the result to the console
+
+                        // Read from file
+                        List<String> lines = readFromFile("resources/events.txt");
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
 
                     break;
                 case 3:
+                    try {
+                        // 3. Write a program to place some bets given TBD money.
+                        //    Using the calculateWinners function, calculate the total
+                        //    profit/loss. (60m)
+                        //    Print the result to the console
+
+                        // Read from file
+                        List<String> lines = readFromFile("resources/events.txt");
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
 
                     break;
                 case 0:
