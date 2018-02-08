@@ -1,28 +1,61 @@
 package com.ppbf;
 
-import com.ppbf.helpers.Helpers;
-import java.io.IOException;
-import java.util.ArrayList;
+import static com.ppbf.helpers.File.readFromFile;
+import static com.ppbf.helpers.Menus.printMenu;
+
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
+    private static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
-        try {
-            createTrees();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    private static void createTrees() throws IOException {
-        ArrayList<String> lines = Helpers.readFromFile();
+        System.out.println("\nWelcome to the Switch Programme Exercise @Blip\n");
 
-        ArrayList<Integer> sizesOfTrees = Helpers.getSizesOfTrees(lines);
+        boolean quit = false;
+        int menuItem;
 
-        for (Integer size : sizesOfTrees) {
-            String tree = Helpers.createChristmasTree(size);
+        do {
+            printMenu();
 
-            Helpers.writeToFile(tree);
-        }
+            menuItem = in.nextInt();
+
+            switch (menuItem) {
+                case 1:
+                    try {
+                        // Write a program to search events by MarketId and print its info. (30m)
+
+                        // Read from file
+                        List<String> lines = readFromFile("resources/events.txt");
+
+                        // Search by marketId
+                        // TODO
+
+                        // Print the results
+                        // TODO
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 0:
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("\nInvalid choice.");
+            }
+        } while (!quit);
+
+        System.out.println("\nBye-bye!");
     }
 }
