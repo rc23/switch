@@ -2,7 +2,7 @@ package com.ppbf.helpers;
 
 import com.ppbf.models.Bet;
 
-public class Menus {
+public class Prints {
 
     public static void printMenu() {
         System.out.println("\n1. Write a program to search events by MarketId. (30m)"
