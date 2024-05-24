@@ -6,3 +6,4 @@ File structure of events.txt:
 | Liverpool vs Porto |    Draw    | 00000002 |    2.0    |
 | Liverpool vs Porto |    Porto   | 00000003 |    3.0    |
 | Liverpool vs Porto |    Porto   | 00000003 |    3.1    |
+
